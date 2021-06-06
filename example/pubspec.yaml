@@ -1,13 +1,18 @@
 name: example
 description: A example to demonstrate painter.
 version: 2.0.0
-repository: https://github.com/EPNW/painter
+#repository: https://github.com/EPNW/painter
 
 dependencies:
   flutter:
     sdk: flutter
-  painter:
+  painter_ok_done:
     path: ../
+#  painter:
+#    git:
+#      url: git@github.com:prajwal27/painter.git
+#      ref: new-feature
+
   flutter_colorpicker: ^0.4.0
 
 flutter:

@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:painter/painter.dart';
+import 'package:painter_ok_done/painter_ok_done.dart';
 
 void main() => runApp(new MyApp());
 
@@ -65,7 +65,7 @@ class _ExamplePageState extends State<ExamplePage> {
                 showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) =>
-                    new Text('Nothing to undo'));
+                        new Text('Nothing to undo'));
               } else {
                 _controller.undo();
               }
@@ -119,12 +119,12 @@ class _ExamplePageState extends State<ExamplePage> {
                   default:
                     return new Container(
                         child: new FractionallySizedBox(
-                          widthFactor: 0.1,
-                          child: new AspectRatio(
-                              aspectRatio: 1.0,
-                              child: new CircularProgressIndicator()),
-                          alignment: Alignment.center,
-                        ));
+                      widthFactor: 0.1,
+                      child: new AspectRatio(
+                          aspectRatio: 1.0,
+                          child: new CircularProgressIndicator()),
+                      alignment: Alignment.center,
+                    ));
                 }
               },
             )),
@@ -145,31 +145,31 @@ class DrawBar extends StatelessWidget {
       children: <Widget>[
         new Flexible(child: new StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              return new Container(
-                  child: new Slider(
-                    value: _controller.thickness,
-                    onChanged: (double value) => setState(() {
-                      _controller.thickness = value;
-                    }),
-                    min: 1.0,
-                    max: 20.0,
-                    activeColor: Colors.white,
-                  ));
-            })),
+          return new Container(
+              child: new Slider(
+            value: _controller.thickness,
+            onChanged: (double value) => setState(() {
+              _controller.thickness = value;
+            }),
+            min: 1.0,
+            max: 20.0,
+            activeColor: Colors.white,
+          ));
+        })),
         new StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
-              return new RotatedBox(
-                  quarterTurns: _controller.eraseMode ? 2 : 0,
-                  child: IconButton(
-                      icon: new Icon(Icons.create),
-                      tooltip: (_controller.eraseMode ? 'Disable' : 'Enable') +
-                          ' eraser',
-                      onPressed: () {
-                        setState(() {
-                          _controller.eraseMode = !_controller.eraseMode;
-                        });
-                      }));
-            }),
+          return new RotatedBox(
+              quarterTurns: _controller.eraseMode ? 2 : 0,
+              child: IconButton(
+                  icon: new Icon(Icons.create),
+                  tooltip: (_controller.eraseMode ? 'Disable' : 'Enable') +
+                      ' eraser',
+                  onPressed: () {
+                    setState(() {
+                      _controller.eraseMode = !_controller.eraseMode;
+                    });
+                  }));
+        }),
         new ColorPickerButton(_controller, false),
         new ColorPickerButton(_controller, true),
       ],
@@ -202,19 +202,19 @@ class _ColorPickerButtonState extends State<ColorPickerButton> {
     Color pickerColor = _color;
     Navigator.of(context)
         .push(new MaterialPageRoute(
-        fullscreenDialog: true,
-        builder: (BuildContext context) {
-          return new Scaffold(
-              appBar: new AppBar(
-                title: const Text('Pick color'),
-              ),
-              body: new Container(
-                  alignment: Alignment.center,
-                  child: new ColorPicker(
-                    pickerColor: pickerColor,
-                    onColorChanged: (Color c) => pickerColor = c,
-                  )));
-        }))
+            fullscreenDialog: true,
+            builder: (BuildContext context) {
+              return new Scaffold(
+                  appBar: new AppBar(
+                    title: const Text('Pick color'),
+                  ),
+                  body: new Container(
+                      alignment: Alignment.center,
+                      child: new ColorPicker(
+                        pickerColor: pickerColor,
+                        onColorChanged: (Color c) => pickerColor = c,
+                      )));
+            }))
         .then((_) {
       setState(() {
         _color = pickerColor;
