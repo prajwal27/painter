@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:painter_ok_done/painter_ok_done.dart';
+import 'package:ok_done_painter/ok_done_painter.dart';
 
 void main() => runApp(new MyApp());
 
